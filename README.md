@@ -9,4 +9,4 @@
 
 - [x] Implemente um programa que contenha funções equivalentes as portas lógicas (not, and, or, nand, nor e xor). Observe que a porta not é exclusivamente unária, mas as demais portas são n-árias
 
-- [ ] Implemente um programa que receba uma expressão da álgebra relacional e indique se a expressão é válida ou não
+- [ ] Implemente um programa que receba uma expressão da álgebra booleana e indique se a expressão é válida ou não
