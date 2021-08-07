@@ -26,14 +26,14 @@ def nor_gate(bits: str) -> str:
         return '1'
     return '0'
 
-def xor_gate(*bits):
+def xor_gate(bits: str) -> str:
     if len(bits) < 2:
         raise ValueError("Uma porta n-ária não aceita como entrada uma palavra com menos de 2 bits")
     if all(bit == '0' for bit in bits) or all(bit == '1' for bit in bits):
         return '0'
     return '1'
 
-def xnor_gate(*bits):
+def xnor_gate(bits: str) -> str:
     if len(bits) < 2:
         raise ValueError("Uma porta n-ária não aceita como entrada uma palavra com menos de 2 bits")
     if all(bit == '0' for bit in bits) or all(bit == '1' for bit in bits):
