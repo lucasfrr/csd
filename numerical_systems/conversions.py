@@ -1,4 +1,4 @@
-def to_decimal(number: str, base: int):
+def convert_to_decimal(number: str, base: int):
     """
     This function converts a given number is in binary, octal or hexadecimal base
     to decimal base.
@@ -11,27 +11,32 @@ def to_decimal(number: str, base: int):
         int: A number is in decimal base.
     """
 
-    if not base == 2 or base == 8 or base == 16:
+    bases = [2, 8, 16]
+    if base not in bases:
         raise ValueError(f"O valor {base} não é um valor de base numérica válido.")
 
     hexadecimal_values = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
     result = 0
+    iteration = 0
 
     if not base == 16:
         for symbol in number:
-            expoent = (len(number) - 1) - number.index(symbol)
+            iteration += 1
+            expoent = len(number) - iteration
             result += int(symbol) * (base ** expoent)
     else:
         for symbol in number:
-            expoent = (len(number) - 1) - number.index(symbol)
-            try:
+            iteration += 1
+            expoent = len(number) - iteration
+
+            if symbol not in hexadecimal_values.keys():
                 result += int(symbol) * (base ** expoent)
-            except TypeError:
-                result += hexadecimal_values[symbol] * (base ** expoent)
 
-    return result
+            result += hexadecimal_values[symbol] * (base ** expoent)
 
-def from_decimal(number: str, base: int):
+    return str(result)
+
+def convert_from_decimal(number: str, base: int):
     """
     This function converts a given number is in decimal base to a
     binary, octal or hexadecimal base.
