@@ -1,7 +1,7 @@
 # CSD Simulator
 
 ### Funcionalidades
-- [ ] Implemente um programa para realizar conversão entre unidades de medida de informação (Byter, Kylobyte, Megabyte, Gigabyte, Terabyte, outras se desejar)
+- [x] Implemente um programa para realizar conversão entre unidades de medida de informação (Byte, Kylobyte, Megabyte, Gigabyte, Terabyte, outras se desejar)
 
 - [x] Implemente um programa para realizar as conversões entre bases numéricas (base 2, base 8, base 10, base 16)
 
