@@ -11,7 +11,11 @@ def convert_to_decimal(number: str, base: int) -> str:
         str: A number is in decimal base.
     """
 
-    bases = (2, 8, 16,)
+    bases = (
+        2,
+        8,
+        16,
+    )
     if base not in bases:
         raise ValueError(f"O valor {base} não é um valor de base numérica válido.")
 
@@ -36,6 +40,7 @@ def convert_to_decimal(number: str, base: int) -> str:
 
     return str(result)
 
+
 def convert_from_decimal(number: str, base: int) -> str:
     """
     This function converts a given number is in decimal base to a
@@ -49,11 +54,22 @@ def convert_from_decimal(number: str, base: int) -> str:
         str: A number is in numerical base what you wanted.
     """
 
-    bases = (2, 8, 16,)
+    bases = (
+        2,
+        8,
+        16,
+    )
     if base not in bases:
         raise ValueError(f"O valor {base} não é um valor de base numérica válido.")
 
-    hexadecimal_values = {"10": "A", "11": "B", "12": "C", "13": "D", "14": "E", "15": "F"}
+    hexadecimal_values = {
+        "10": "A",
+        "11": "B",
+        "12": "C",
+        "13": "D",
+        "14": "E",
+        "15": "F",
+    }
     result, number = "", int(number)
 
     while number >= base:
