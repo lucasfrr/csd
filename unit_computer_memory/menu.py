@@ -15,7 +15,7 @@ def unit_computer_memory_menu():
 
         choice = int(
             input(
-                "Selecione de qual unidade você quer converter ou digite (0) para voltar:"
+                "Selecione de qual unidade você quer converter ou digite (0) para voltar: "
             )
         )
 
@@ -46,7 +46,7 @@ def unit_computer_memory_menu():
 
         choice_2 = int(
             input(
-                "Selecione para qual unidade você quer converter ou digite (0) para voltar:"
+                "Selecione para qual unidade você quer converter ou digite (0) para voltar: "
             )
         )
 
@@ -73,8 +73,11 @@ def unit_computer_memory_menu():
                 f"O valor {formated_value} {unit_from} em {unit_to} é igual a {result}"
             )
         elif choice_2 in [2, 3, 4, 5]:
-            partial_result = convert_to_bytes(formated_value, unit_from)
-            result = convert_from_bytes(partial_result, unit_to)
+            if choice == 1:
+                result = convert_from_bytes(formated_value, unit_to)
+            else:
+                partial_result = convert_to_bytes(formated_value, unit_from)
+                result = convert_from_bytes(partial_result, unit_to)
             print(
                 f"O valor {formated_value} {unit_from} em {unit_to} é aproximadamente {result}"
             )
