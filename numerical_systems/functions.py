@@ -1,4 +1,4 @@
-from numerical_systems.hexadecimals_conversions import decimal_to_hexadecimal
+from numerical_systems.hexadecimals_conversions import decimal_to_hexadecimal, hexadecimal_to_decimal
 
 
 bases = (2, 8, 16,)
@@ -19,24 +19,15 @@ def convert_to_decimal(number: str, base: int) -> str:
     if base not in bases:
         raise ValueError(f"O valor {base} não é um valor de base numérica válido.")
 
-    hexadecimal_values = {"A": 10, "B": 11, "C": 12, "D": 13, "E": 14, "F": 15}
-    result = 0
-    iteration = 0
-
-    if not base == 16:
-        for symbol in number:
-            iteration += 1
-            expoent = len(number) - iteration
-            result += int(symbol) * (base ** expoent)
-    else:
-        for symbol in number:
-            iteration += 1
-            expoent = len(number) - iteration
-
-            if symbol not in hexadecimal_values.keys():
-                result += int(symbol) * (base ** expoent)
-            else:
-                result += hexadecimal_values[symbol] * (base ** expoent)
+    if base == 16:
+        return hexadecimal_to_decimal(number)
+    
+    iteration, result = 0, 0
+    
+    for symbol in number:
+        iteration += 1
+        expoent = len(number) - iteration
+        result += int(symbol) * (base ** expoent)
 
     return str(result)
 

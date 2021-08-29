@@ -1,5 +1,6 @@
+symbols = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F',}
+
 def decimal_to_hexadecimal(number: str) -> str:
-    symbols = {'10': 'A', '11': 'B', '12': 'C', '13': 'D', '14': 'E', '15': 'F',}
     
     result, number = '', int(number)
     
@@ -20,3 +21,18 @@ def decimal_to_hexadecimal(number: str) -> str:
         result += str(number) if number != 0 else ''
     
     return result[::-1]
+
+
+def hexadecimal_to_decimal(number: str) -> str:
+    iteration, result = 0, 0
+
+    for symbol in number:
+        iteration += 1
+        expoent = len(number) - iteration
+
+        if symbol not in symbols.keys():
+            result += int(symbol) * (16 ** expoent)
+        else:
+            result += symbols[symbol] * (16 ** expoent)
+
+    return str(result)
