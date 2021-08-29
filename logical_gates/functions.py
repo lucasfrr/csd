@@ -43,7 +43,9 @@ def xor_gate(bits: str) -> str:
         raise ValueError(
             "Uma porta n-ária não aceita como entrada uma palavra com menos de 2 bits"
         )
-    if all(bit == "0" for bit in bits) or all(bit == "1" for bit in bits):
+    ones = [bit for bit in bits if bit == '1']
+
+    if len(ones) % 2 == 0:
         return "0"
     return "1"
 
@@ -53,7 +55,9 @@ def xnor_gate(bits: str) -> str:
         raise ValueError(
             "Uma porta n-ária não aceita como entrada uma palavra com menos de 2 bits"
         )
-    if all(bit == "0" for bit in bits) or all(bit == "1" for bit in bits):
+    ones = [bit for bit in bits if bit == '1']
+
+    if len(ones) % 2 == 0:
         return "1"
     return "0"
 

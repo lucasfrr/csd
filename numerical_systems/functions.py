@@ -1,6 +1,8 @@
 from numerical_systems.hexadecimals_conversions import decimal_to_hexadecimal
 
 
+bases = (2, 8, 16,)
+
 def convert_to_decimal(number: str, base: int) -> str:
     """
     This function converts a given number is in binary, octal or hexadecimal base
@@ -14,11 +16,6 @@ def convert_to_decimal(number: str, base: int) -> str:
         str: A number is in decimal base.
     """
 
-    bases = (
-        2,
-        8,
-        16,
-    )
     if base not in bases:
         raise ValueError(f"O valor {base} não é um valor de base numérica válido.")
 
@@ -38,8 +35,8 @@ def convert_to_decimal(number: str, base: int) -> str:
 
             if symbol not in hexadecimal_values.keys():
                 result += int(symbol) * (base ** expoent)
-
-            result += hexadecimal_values[symbol] * (base ** expoent)
+            else:
+                result += hexadecimal_values[symbol] * (base ** expoent)
 
     return str(result)
 
@@ -57,11 +54,6 @@ def convert_from_decimal(number: str, base: int) -> str:
         str: A number is in numerical base what you wanted.
     """
 
-    bases = (
-        2,
-        8,
-        16,
-    )
     if base not in bases:
         raise ValueError(f"O valor {base} não é um valor de base numérica válido.")
 
